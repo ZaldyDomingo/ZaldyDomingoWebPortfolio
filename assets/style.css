@@ -88,10 +88,11 @@
 }
 
 .home-img img {
-    width: 30rem; /* Adjust size as needed */
-    height: 30rem;
-    border-radius: 50%; /* Make the image circular */
-    object-fit: cover;
+    width: 100%; /* Make the image responsive */
+    max-width: 30rem; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Keep the circular shape */
+    object-fit: cover; /* Ensure the image fits within the container */
     box-shadow: 0 0 1rem var(--main-color); /* Optional: Add a shadow */
 }
 

@@ -50,28 +50,33 @@ const typed = new Typed('.multiple-text',{
     loop:true
 });
 
-// Light/Dark mode toggle
+// Dark/Light mode toggle
 const darkModeToggle = document.querySelector('#dark-mode-icon');
 const body = document.body;
 
-// Persist dark mode preference
+// Load saved theme from localStorage
 window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        body.classList.add(savedTheme);
-        darkModeToggle.classList.replace(
-            savedTheme === 'light-mode' ? 'bx-moon' : 'bx-sun',
-            savedTheme === 'light-mode' ? 'bx-sun' : 'bx-moon'
-        );
-    }
+    const savedTheme = localStorage.getItem('theme') || 'dark-mode'; // Default to dark mode
+    body.classList.add(savedTheme);
+    updateDarkModeIcon(savedTheme);
 });
 
+// Toggle dark/light mode
 darkModeToggle.addEventListener('click', () => {
-    const isLightMode = body.classList.toggle('light-mode');
-    body.classList.toggle('dark-mode', !isLightMode);
-    darkModeToggle.classList.replace(
-        isLightMode ? 'bx-moon' : 'bx-sun',
-        isLightMode ? 'bx-sun' : 'bx-moon'
-    );
-    localStorage.setItem('theme', isLightMode ? 'light-mode' : 'dark-mode');
+    const isDarkMode = body.classList.contains('dark-mode');
+    const newTheme = isDarkMode ? 'light-mode' : 'dark-mode';
+
+    body.classList.remove('dark-mode', 'light-mode');
+    body.classList.add(newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateDarkModeIcon(newTheme);
 });
+
+// Update the dark mode toggle icon
+function updateDarkModeIcon(theme) {
+    if (theme === 'light-mode') {
+        darkModeToggle.classList.replace('bx-moon', 'bx-sun');
+    } else {
+        darkModeToggle.classList.replace('bx-sun', 'bx-moon');
+    }
+}
