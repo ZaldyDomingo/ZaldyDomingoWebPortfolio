@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <title>Zaldy Domingo's Web Portfolio</title>
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "Gc_NdqRlLsQRga6cE",
+        });
+    })();
+    </script>
 </head>
 
 <body>
@@ -30,7 +40,7 @@
             <h3>Hello, It's Me</h3>
             <h1>Zaldy</h1>
             <h3>And I'm a <span class="multiple-text"></span></h3>
-            <a href="assets/B.-Software-Engineer.docx" class="btn">Download CV</a>
+            <a href="assets/cv/03_Handout_1(12) ANDROID STUDIO MIDTERM.pdf" class="btn" download>Download CV</a>
         </div>
         <div class="home-img">
             <img src="assets/images/profile.jpg" alt="Profile Picture">
@@ -113,16 +123,12 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2 class="heading">Connect with <span>Me!</span></h2>
-        <form action="#" name="submit-to-google-sheet">
+        <form id="contact-form">
             <div class="input-box">
-                <input type="text" name="Name" placeholder="Full Name" required>
-                <input type="email" name="Email Address" placeholder="Email Address" required>
+                <input type="text" name="name" id="contact-name" placeholder="Full Name" required>
+                <input type="email" name="email" id="contact-email" placeholder="Email Address" required>
             </div>
-            <div class="input-box">
-                <input type="number" name="Mobile Number" placeholder="Mobile Number" required>
-                <input type="text" name="Email Subject" placeholder="Email Subject" required>
-            </div>
-            <textarea name="Your Message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <textarea name="message" id="contact-message" cols="30" rows="10" placeholder="Why do you want to contact me?" required></textarea>
             <input type="submit" value="Send Message" class="btn">
         </form>
         <span id="msg"></span>
@@ -147,24 +153,17 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzUlDw7O0128SZlAwcXbkEossxSlv29frYqSShm15SjHbMJzPXi-Nd5m-gKtvbFq8SDmg/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msg=document.getElementById("msg")
-      
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msg.innerHTML="Message sent successfully"
-                setTimeout(function(){
-                    msg.innerHTML=""
-                },5000)
-                form.reset()
-            })
-            .catch(error => console.error('Error!', error.message))
-        })
-    </script>
     <script src="assets/script.js"></script>
+    <!-- <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('contact-name').value;
+        const email = document.getElementById('contact-email').value;
+        const message = document.getElementById('contact-message').value;
+        const mailtoLink = `mailto:domingozaldyjr15@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0A%0AWhy contact: ${encodeURIComponent(message)}`;
+        window.location.href = mailtoLink;
+        document.getElementById('msg').textContent = "Your email client should open. If not, please email me directly!";
+    });
+    </script> -->
 </body>
 </html>

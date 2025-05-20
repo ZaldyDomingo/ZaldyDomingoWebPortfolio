@@ -1,6 +1,17 @@
 let menuIcon=document.querySelector('#menu-icon');
 let navbar=document.querySelector('.navbar');
 
+function sendMail()
+{
+    let params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+        subject: document.getElementById("subject").value
+    };
+    emailjs.send("service_i61c0mr", "template_4b6bita", params).then.alert("Email sent successfully!")
+}
+
 menuIcon.onclick=()=>{
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
@@ -49,3 +60,22 @@ const typed = new Typed('.multiple-text',{
     backDelay:1000,
     loop:true
 });
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let params = {
+        name: document.getElementById("contact-name").value,
+        email: document.getElementById("contact-email").value,
+        message: document.getElementById("contact-message").value
+    };
+
+    emailjs.send("service_i61c0mr", "template_4b6bita", params)
+        .then(function(response) {
+            document.getElementById('msg').textContent = "Email sent successfully!";
+            document.getElementById('contact-form').reset();
+        }, function(error) {
+            document.getElementById('msg').textContent = "Failed to send email. Please try again.";
+        });
+});
+
