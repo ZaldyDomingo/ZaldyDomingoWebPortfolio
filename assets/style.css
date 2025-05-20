@@ -404,93 +404,57 @@
     box-shadow: 0 0 1rem var(--main-color);
 }
 
-/* Dark mode toggle button */
-.dark-mode-toggle {
-    cursor: pointer;
-    font-size: 2.4rem;
+/* Recognition Section */
+.recognition {
+    background: var(--second-bg-color);
+    padding: 5rem 9%;
+    text-align: center;
+}
+
+.recognition h2 {
+    margin-bottom: 4rem;
+    font-size: 4.5rem;
     color: var(--text-color);
-    margin-left: 2rem;
-    transition: color 0.3s ease;
 }
 
-.dark-mode-toggle:hover {
+.recognition-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.recognition-box {
+    flex: 1 1 30rem;
+    background: var(--bg-color);
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: 0.2rem solid var(--main-color);
+    transition: 0.5s ease;
+}
+
+.recognition-box:hover {
+    transform: scale(1.05);
+    border-color: var(--main-color);
+}
+
+.recognition-box i {
+    font-size: 7rem;
     color: var(--main-color);
+    margin-bottom: 1.5rem;
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    background: #121212;
-    color: #e0e0e0;
+.recognition-box h3 {
+    font-size: 2.6rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
 }
 
-body.dark-mode .header {
-    background: #1e1e1e;
-}
-
-body.dark-mode .navbar a {
-    color: #e0e0e0;
-}
-
-body.dark-mode .navbar a.active,
-body.dark-mode .navbar a:hover {
-    color: #0ef;
-}
-
-body.dark-mode .btn {
-    background: #0ef;
-    color: #121212;
-}
-
-body.dark-mode .footer {
-    background: #1e1e1e;
-}
-
-/* Light mode styles */
-body.light-mode {
-    background: #ffffff;
-    color: #000000;
-}
-
-body.light-mode .header {
-    background: #f5f5f5;
-}
-
-body.light-mode .navbar a {
-    color: #000000;
-}
-
-body.light-mode .navbar a.active,
-body.light-mode .navbar a:hover {
-    color: #007bff;
-}
-
-body.light-mode .btn {
-    background: #007bff;
-    color: #ffffff;
-}
-
-body.light-mode .footer {
-    background: #f5f5f5;
-}
-
-body.light-mode .footer-social-media a {
-    border-color: #007bff;
-    color: #007bff;
-}
-
-body.light-mode .footer-social-media a:hover {
-    background: #007bff;
-    color: #ffffff;
-}
-
-/* Change the dark mode toggle icon color in light mode */
-body.light-mode .dark-mode-toggle i {
-    color: #000000; /* Set the icon color to dark for visibility in light mode */
-}
-
-/* Add this rule for light mode */
-body.light-mode .logo {
-    color: #000000; /* Set the logo text color to dark for visibility in light mode */
+.recognition-box p {
+    font-size: 1.6rem;
+    color: var(--text-color);
 }
 
 @media (max-width:1200px){

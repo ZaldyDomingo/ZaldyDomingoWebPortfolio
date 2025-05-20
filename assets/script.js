@@ -49,34 +49,3 @@ const typed = new Typed('.multiple-text',{
     backDelay:1000,
     loop:true
 });
-
-// Dark/Light mode toggle
-const darkModeToggle = document.querySelector('#dark-mode-icon');
-const body = document.body;
-
-// Load saved theme from localStorage
-window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'dark-mode'; // Default to dark mode
-    body.classList.add(savedTheme);
-    updateDarkModeIcon(savedTheme);
-});
-
-// Toggle dark/light mode
-darkModeToggle.addEventListener('click', () => {
-    const isDarkMode = body.classList.contains('dark-mode');
-    const newTheme = isDarkMode ? 'light-mode' : 'dark-mode';
-
-    body.classList.remove('dark-mode', 'light-mode');
-    body.classList.add(newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateDarkModeIcon(newTheme);
-});
-
-// Update the dark mode toggle icon
-function updateDarkModeIcon(theme) {
-    if (theme === 'light-mode') {
-        darkModeToggle.classList.replace('bx-moon', 'bx-sun');
-    } else {
-        darkModeToggle.classList.replace('bx-sun', 'bx-moon');
-    }
-}
