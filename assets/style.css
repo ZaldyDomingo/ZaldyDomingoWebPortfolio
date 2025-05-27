@@ -418,61 +418,6 @@
     box-shadow: 0 0 1rem var(--main-color);
 }
 
-
-
-/* Recognition Section */
-.recognition {
-    background: var(--second-bg-color);
-    padding: 5rem 9%;
-    text-align: center;
-}
-
-.recognition h2 {
-    margin-bottom: 4rem;
-    font-size: 4.5rem;
-    color: var(--text-color);
-}
-
-.recognition-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.recognition-box {
-    flex: 1 1 30rem;
-    background: var(--bg-color);
-    padding: 3rem 2rem;
-    border-radius: 2rem;
-    text-align: center;
-    border: 0.2rem solid var(--main-color);
-    transition: 0.5s ease;
-}
-
-.recognition-box:hover {
-    transform: scale(1.05);
-    border-color: var(--main-color);
-}
-
-.recognition-box i {
-    font-size: 7rem;
-    color: var(--main-color);
-    margin-bottom: 1.5rem;
-}
-
-.recognition-box h3 {
-    font-size: 2.6rem;
-    color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-.recognition-box p {
-    font-size: 1.6rem;
-    color: var(--text-color);
-}
-
 @media (max-width:1200px){
    html{
       font-size: 55%;
