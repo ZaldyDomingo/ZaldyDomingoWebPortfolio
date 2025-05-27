@@ -14,7 +14,7 @@
  :root {
     --bg-color:#1f242d;
     --second-bg-color:#323946;
-    --text-color:#fff;
+    --text-color:#ffffff;
     --main-color:#0ef; 
  }
 
@@ -107,6 +107,7 @@
  .home-content h3, .home-content h1 {
     line-height: 1.5; /* Adjust line height for better readability */
     word-break: break-word; /* Break long words */
+    color: #ffffff;
 }
 
  .home-content h3 span {
@@ -175,6 +176,7 @@
     align-items: center;
     gap: 2rem;
     background: var(--second-bg-color);
+    color: #ffffff;
  }
  .about-img img{
     width: 35rem;
@@ -235,6 +237,7 @@
  }
  .portfolio{
    background: var(--second-bg-color);
+   color: #ffffff;
  }
 .portfolio h2{
    margin-bottom: 4rem;
@@ -303,6 +306,10 @@
    color: var(--second-bg-color);
 }
 
+.contact{
+   color: #ffffff;
+}
+
 .contact h2{
    margin-bottom: 3rem;
 }
@@ -351,6 +358,7 @@
    flex-wrap: wrap;
    padding: 2rem 9%;
    background: var(--second-bg-color);
+   color: #ffffff;
 }
 
 .footer-text p{

@@ -1,169 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Zaldy Domingo's Web Portfolio showcasing projects, skills, and services.">
-    <meta name="keywords" content="Web Development, Portfolio, UI/UX Design, Frontend Developer">
-    <link rel="stylesheet" href="assets/style.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <title>Zaldy Domingo's Web Portfolio</title>
-        <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Zaldy Domingo's Web Portfolio showcasing projects, skills, and services.">
+  <meta name="keywords" content="Web Development, Portfolio, UI/UX Design, Frontend Developer">
+  <link rel="stylesheet" href="assets/style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <title>Zaldy Domingo's Web Portfolio</title>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
     (function(){
-        emailjs.init({
-            publicKey: "Gc_NdqRlLsQRga6cE",
-        });
+      emailjs.init({
+        publicKey: "Gc_NdqRlLsQRga6cE",
+      });
     })();
-    </script>
+  </script>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <a href="#" class="logo">Portfolio</a>
-        <i class="bx bx-menu" id="menu-icon"></i>
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#recognition">Recognition</a> <!-- Added Recognition to nav -->
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-    <!-- Home Section -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Hello, It's Me</h3>
-            <h1>Zaldy</h1>
-            <h3>And I'm a <span class="multiple-text"></span></h3>
-            <a href="assets/cv/03_Handout_1(12) ANDROID STUDIO MIDTERM.pdf" class="btn" download>Download CV</a>
-        </div>
-        <div class="home-img">
-            <img src="assets/images/profile.jpg" alt="Profile Picture">
-        </div>
-    </section>
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="assets/images/about.jpg" alt="About Me">
-        </div>
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-            <h3>Frontend Developer</h3>
-            <p>Frontend developer with experience building single-page web applications and a knack for creating attractive user interfaces. Skilled in JavaScript, HTML, and, CSS.</p>
-            <a href="#" class="btn">Read More</a>
-        </div>
-    </section>
+  <!-- Header -->
+  <header class="header">
+    <a href="#" class="logo">Portfolio</a>
+    <i class="bx bx-menu" id="menu-icon"></i>
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <!-- Recognition Section -->
-    <section class="recognition" id="recognition">
-        <h2 class="heading">My <span>Recognitions</span></h2>
-        <div class="recognition-container">
-            <div class="recognition-box">
-                <i class="bx bxs-award"></i>
-                <h3>Best Web Developer</h3>
-                <p>Awarded for outstanding performance in web development at the STI Alaminos IT Summit 2024.</p>
-            </div>
-            <div class="recognition-box">
-                <i class="bx bxs-medal"></i>
-                <h3>UI/UX Design Excellence</h3>
-                <p>Recognized for creating user-friendly and visually appealing designs in the 2023 Designathon.</p>
-            </div>
-            <div class="recognition-box">
-                <i class="bx bxs-trophy"></i>
-                <h3>Top Innovator</h3>
-                <p>Received the Top Innovator award for developing a dynamic web application during the 2025 Hackathon.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Home Section -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <h3>Hello, It's Me</h3>
+      <h1>Zaldy</h1>
+      <h3>And I'm a <span class="multiple-text"></span></h3>
+      <a href="assets/cv/03_Handout_1(12) ANDROID STUDIO MIDTERM.pdf" class="btn" download>Download CV</a>
+    </div>
+    <div class="home-img">
+      <img src="assets/images/profile.jpg" alt="Profile Picture">
+    </div>
+  </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <h2 class="heading">Latest <span>Projects</span></h2>
-        <div class="portfolio-container">
-            <div class="portfolio-box">
-                <img src="assets/images/project1.png" alt="CHC Gym Membership Management System">
-                <div class="portfolio-layer">
-                    <h4>Gym Membership Management System</h4>
-                    <p>Showcase of my project that involves gym membership management system for CHC Gym Alaminos.</p>
-                    <a href="#"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="assets/images/project2.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>dynamics website Deployment in AWS</h4>
-                    <p>In this project I try deployed dynamics website in AWS.so that we can add deleted the data by connecting to databases.</p>
-                    <a href="#"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="assets/images/project3.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Iris flower detection</h4>
-                    <p>In this project I try detect the iris flower type by using machine learning predication model.And deployed in streamlit python</p>
-                    <a href="#"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="assets/images/project4.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>trafic analysis </h4>
-                    <p>In this project I try analysis the traffic by using java.</p>
-                    <a href="#"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="about-img">
+      <img src="assets/images/about.jpg" alt="About Me">
+    </div>
+    <div class="about-content">
+      <h2 class="heading">About <span>Me</span></h2>
+      <h3>Frontend Developer</h3>
+      <p>Frontend developer with experience building single-page web applications and a knack for creating attractive user interfaces. Skilled in JavaScript, HTML, and CSS.</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Connect with <span>Me!</span></h2>
-        <form id="contact-form">
-            <div class="input-box">
-                <input type="text" name="name" id="contact-name" placeholder="Full Name" required>
-                <input type="email" name="email" id="contact-email" placeholder="Email Address" required>
-            </div>
-            <textarea name="message" id="contact-message" cols="30" rows="10" placeholder="Why do you want to contact me?" required></textarea>
-            <input type="submit" value="Send Message" class="btn">
-        </form>
-        <span id="msg"></span>
-    </section>
+  <!-- Recognition Section -->
+  <section class="recognition" id="recognition">
+    <h2 class="heading">My <span>Recognitions</span></h2>
+    <div class="recognition-container">
+      <div class="recognition-box">
+        <i class="bx bxs-award"></i>
+        <h3>Best Web Developer</h3>
+        <p>Awarded for outstanding performance in web development at the STI Alaminos IT Summit 2024.</p>
+      </div>
+      <div class="recognition-box">
+        <i class="bx bxs-medal"></i>
+        <h3>UI/UX Design Excellence</h3>
+        <p>Recognized for creating user-friendly and visually appealing designs in the 2023 Designathon.</p>
+      </div>
+      <div class="recognition-box">
+        <i class="bx bxs-trophy"></i>
+        <h3>Top Innovator</h3>
+        <p>Received the Top Innovator award for developing a dynamic web application during the 2025 Hackathon.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-text">
-            <p> &copy; 2025, Domingo, Zaldy Jr. C. | All Rights Reserved.</p>
+  <!-- Portfolio Section -->
+  <section class="portfolio" id="portfolio">
+    <h2 class="heading">Latest <span>Projects</span></h2>
+    <div class="portfolio-container">
+      <div class="portfolio-box">
+        <img src="assets/images/project1.png" alt="CHC Gym Membership Management System">
+        <div class="portfolio-layer">
+          <h4>Gym Membership Management System</h4>
+          <p>Showcase of my project that involves gym membership management system for CHC Gym Alaminos.</p>
+          <a href="#"><i class="bx bx-link-external"></i></a>
         </div>
-        <div class="footer-social-media">
-            <a href="https://github.com/ZaldyDomingo"><i class="bx bxl-github"></i></a>
-            <a href="#"><i class="bx bxs-envelope"></i></a>
-            <a href="https://www.instagram.com/zaldy_jr_domingo/"><i class="bx bxl-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/zaldy-jr-domingo-593716333"><i class="bx bxl-linkedin-square"></i></a>
-        </div>
-        <div class="footer-iconTop">
-            <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
-        </div>
-    </footer>
+      </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="assets/script.js"></script>
-    <!-- <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('contact-name').value;
-        const email = document.getElementById('contact-email').value;
-        const message = document.getElementById('contact-message').value;
-        const mailtoLink = `mailto:domingozaldyjr15@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0A%0AWhy contact: ${encodeURIComponent(message)}`;
-        window.location.href = mailtoLink;
-        document.getElementById('msg').textContent = "Your email client should open. If not, please email me directly!";
-    });
-    </script> -->
+      <div class="portfolio-box">
+        <img src="assets/images/project2.png" alt="">
+        <div class="portfolio-layer">
+          <h4>Dynamic Website Deployment in AWS</h4>
+          <p>In this project I deployed a dynamic website on AWS with database connections and CRUD functionality.</p>
+          <a href="#"><i class="bx bx-link-external"></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="assets/images/project3.png" alt="">
+        <div class="portfolio-layer">
+          <h4>Iris Flower Detection</h4>
+          <p>A machine learning model for classifying Iris flower species, deployed on Streamlit using Python.</p>
+          <a href="#"><i class="bx bx-link-external"></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="assets/images/project4.png" alt="">
+        <div class="portfolio-layer">
+          <h4>Traffic Analysis</h4>
+          <p>A Java-based system to analyze traffic patterns and data for improved traffic management.</p>
+          <a href="#"><i class="bx bx-link-external"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2 class="heading">Connect with <span>Me!</span></h2>
+    <form id="contact-form">
+      <div class="input-box">
+        <input type="text" name="name" id="contact-name" placeholder="Full Name" required>
+        <input type="email" name="email" id="contact-email" placeholder="Email Address" required>
+      </div>
+      <textarea name="message" id="contact-message" cols="30" rows="10" placeholder="Full description" required></textarea>
+      <input type="submit" value="Send Message" class="btn">
+    </form>
+    <span id="msg"></span>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-text">
+      <p>&copy; 2025, Domingo, Zaldy Jr. C. | All Rights Reserved.</p>
+    </div>
+    <div class="footer-social-media">
+      <a href="https://github.com/ZaldyDomingo"><i class="bx bxl-github"></i></a>
+      <a href="#"><i class="bx bxs-envelope"></i></a>
+      <a href="https://www.instagram.com/zaldy_jr_domingo/"><i class="bx bxl-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/zaldy-jr-domingo-593716333"><i class="bx bxl-linkedin-square"></i></a>
+    </div>
+    <div class="footer-iconTop">
+      <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+    </div>
+  </footer>
+
+  <!-- JS Libraries and Custom Script -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="assets/script.js"></script>
 </body>
 </html>
