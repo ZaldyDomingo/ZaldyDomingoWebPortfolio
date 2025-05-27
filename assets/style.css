@@ -25,7 +25,7 @@
  }
  body{
     background: var(--bg-color);
-    color: var (--text-color);
+    color: var(--text-color);
     font-family: 'Poppins', Arial, sans-serif;
  }
 
@@ -57,7 +57,7 @@
  }
  .navbar a {
     font-size: 1.7rem;
-    color: var (--text-color);
+    color: var(--text-color);
     margin-left: 4rem;
     transition: .3s;
  }
@@ -72,47 +72,46 @@
     display: none;
  }
 
- /* Center and stack the home section content and image */
 .home {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Center-align text */
-    gap: 2rem; /* Add spacing between the image and content */
-    min-height: 100vh; /* Ensure the section takes full viewport height */
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center; 
+    gap: 2rem; 
+    min-height: 100vh; 
 }
 
 .home-img {
-    order: 1; /* Ensure the image appears first */
+    order: 1; 
 }
 
 .home-img img {
-    width: 100%; /* Make the image responsive */
-    max-width: 30rem; /* Set a maximum width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Keep the circular shape */
-    object-fit: cover; /* Ensure the image fits within the container */
-    box-shadow: 0 0 1rem var(--main-color); /* Optional: Add a shadow */
+    width: 100%; 
+    max-width: 30rem; 
+    height: auto;
+    border-radius: 50%; 
+    object-fit: cover;
+    box-shadow: 0 0 1rem var(--main-color); 
 }
 
 .home-content {
-    order: 2; /* Ensure the content appears below the image */
-    max-width: 50rem; /* Limit the width of the content */
+    order: 2; 
+    max-width: 50rem; 
     word-wrap: break-word;
     overflow-wrap: break-word;
-    margin-top: 2rem; /* Add spacing below the image */
+    margin-top: 2rem; 
 }
 
  .home-content h3, .home-content h1 {
-    line-height: 1.5; /* Adjust line height for better readability */
-    word-break: break-word; /* Break long words */
+    line-height: 1.5; 
+    word-break: break-word; 
     color: #ffffff;
 }
 
  .home-content h3 span {
-    display: inline-block; /* Prevent animation from affecting layout */
-    white-space: normal; /* Allow text to wrap */
+    display: inline-block; 
+    white-space: normal; 
 }
 
  .home-content h3 {
@@ -180,7 +179,13 @@
  }
  .about-img img{
     width: 35rem;
- }
+   height: 35rem;    
+    max-width: 30rem; 
+    height: auto;
+    border-radius: 5%; 
+    object-fit: cover;
+    box-shadow: 0 0 1rem var(--main-color); 
+}
 
  .heading{
     text-align: center;
@@ -376,7 +381,8 @@
 }
 
 .footer-iconTop a:hover{
-   box-shadow: 0 0 1rem var(--main-color);
+  box-shadow: 0 0 1rem var(--main-color);
+  transform: translateY(-3px);
 }
 
 .footer-iconTop a i{
@@ -411,6 +417,8 @@
     color: var(--second-bg-color);
     box-shadow: 0 0 1rem var(--main-color);
 }
+
+
 
 /* Recognition Section */
 .recognition {
