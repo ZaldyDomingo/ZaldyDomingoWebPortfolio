@@ -13,9 +13,10 @@
  }
  :root {
     --bg-color:#1f242d;
+    --header-bg-color:#282a2c;
     --second-bg-color:#323946;
     --text-color:#ffffff;
-    --main-color:#0ef; 
+    --main-color:#9450F2; 
  }
 
  html{
@@ -39,7 +40,7 @@
     left:0;
     width: 100%;
     padding: 2rem 9%;
-    background: var(--bg-color);
+    background: var(--header-bg-color);
     display: flex;
     justify-content:space-between;
     align-items: center;
