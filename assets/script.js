@@ -48,7 +48,7 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
 // Typed.js text animation config
 const typed = new Typed('.multiple-text', {
-    strings: ['IT Student at STI Alaminos', 'Software Developer', 'Visual Studio Code Enthusiast'],
+    strings: ['Software Developer', 'Visual Studio Code Enthusiast'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
