@@ -77,3 +77,41 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
             document.getElementById('msg').style.color = "#ff3860";
         });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const posts = document.querySelectorAll('#blog-posts .post');
+  const postsPerPage = 3;
+  let currentPage = 1;
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+
+  function showPage(page) {
+    posts.forEach(post => post.style.display = 'none');
+
+    const start = (page - 1) * postsPerPage;
+    const end = start + postsPerPage;
+
+    for (let i = start; i < end && i < posts.length; i++) {
+      posts[i].style.display = 'block';
+    }
+
+    document.getElementById('prev-btn').disabled = (page === 1);
+    document.getElementById('next-btn').disabled = (page === totalPages);
+  }
+
+  document.getElementById('prev-btn').addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      showPage(currentPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on page change
+    }
+  });
+
+  document.getElementById('next-btn').addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  showPage(currentPage);
+});

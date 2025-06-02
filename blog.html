@@ -1,79 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Zaldy's Blog</title>
-  <meta name="description" content="Zaldy Domingo's Personal Blog">
-  <meta name="keywords" content="Web Development, Blog, Coding, Projects">
-  <link rel="stylesheet" href="assets/style.css">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <meta name="description" content="Zaldy Domingo's Personal Blog" />
+  <meta name="keywords" content="Web Development, Blog, Coding, Projects" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    /* Blog specific styles */
+    .blog-container {
+      max-width: 850px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #282a2c;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .blog-post {
+      background-color: #323946;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      border-left: 4px solid transparent;
+    }
+
+    .blog-post:hover,
+    .blog-post:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      border-left: 4px solid var(--main-color);
+      outline: none;
+    }
+
+    .blog-post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-post h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
+
+    .post-date {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .blog-post p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+      margin: 0;
+    }
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .tag {
+      background-color: rgba(148, 80, 242, 0.2);
+      color: var(--main-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .pagination {
+      margin: 2rem auto 3rem;
+      max-width: 850px;
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .pagination button {
+      background-color: #323946;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      color: #f0f0f0;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pagination button:hover:not(:disabled),
+    .pagination button:focus:not(:disabled) {
+      background-color: var(--main-color);
+      color: #fff;
+      outline: none;
+    }
+
+    .pagination button:disabled {
+      background-color: #444;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    /* Filter dropdown */
+    .blog-controls {
+      max-width: 850px;
+      width: 90%;
+      margin: 0 auto 2rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .filter-dropdown {
+      position: relative;
+    }
+
+    .filter-dropdown select {
+      padding: 0.8rem 1rem;
+      background: #323946;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1rem;
+      appearance: none;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .filter-dropdown i {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #aaa;
+    }
+
+    /* Modal improvements */
+    #post-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background-color: #323946;
+      color: #f0f0f0;
+      max-width: 700px;
+      width: 90%;
+      padding: 2rem;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      max-height: 90vh;
+      overflow-y: auto;
+      line-height: 1.6;
+    }
+
+    .modal-content h2 {
+      color: var(--main-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content .post-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: #f0f0f0;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+      color: var(--main-color);
+    }
+
+    @media (max-width: 768px) {
+      .blog-container {
+        padding: 1rem;
+      }
+
+      .blog-post {
+        padding: 1.2rem;
+      }
+
+      .blog-controls {
+        justify-content: center;
+      }
+
+      .filter-dropdown {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
-<body>
-  <!-- Header -->
-  <header class="header">
-    <a href="#" class="logo">Blog</a>
-    <i class="bx bx-menu" id="menu-icon"></i>
-    <nav class="navbar">
-      <a href="index.html" id="portfolio-link">Back to Portfolio</a>
+<body class="blog-page">
+  <header class="header" id="top">
+    <a href="blog.html" class="logo">Blog</a>
+    <button id="menu-icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar">
+      <i class="bx bx-menu"></i>
+    </button>
+    <nav class="navbar" id="navbar">
+      <a href="index.html" id="portfolio-link" title="Back to Portfolio">Back to Portfolio</a>
     </nav>
   </header>
 
-  <!-- Blog Home Section -->
-  <section class="home">
+  <section class="home" id="home">
     <div class="home-content">
       <h1>Welcome to my <span>Blog!</span></h1>
-      <p>This is where I post about my coding journey, projects, tips, and lessons I've learned.</p>
+      <p>This is where I post about my coding journey, projects, and lessons I've learned.</p>
     </div>
   </section>
 
-  <!-- Blog Posts Section -->
   <section class="portfolio" id="blog-posts">
     <h2 class="heading">Latest <span>Posts</span></h2>
-
-    <div class="portfolio-container">
-      <!-- Blog Post 1 -->
-      <div class="portfolio-box">
-        <img src="assets/images/project1.png" alt="Blog Post 1">
-        <div class="portfolio-layer">
-          <h4>My First Web System</h4>
-          <p>A recap of how I built my first gym membership management system in Visual Studio.</p>
-        </div>
+    
+    <div class="blog-controls">
+      <div class="filter-dropdown">
+        <i class="bx bx-filter-alt"></i>
+        <select id="filter-category">
+          <option value="all">All Categories</option>
+          <option value="javascript">JavaScript</option>
+          <option value="css">CSS</option>
+          <option value="beginners">Beginners</option>
+        </select>
       </div>
+    </div>
 
-      <!-- Blog Post 2 -->
-      <div class="portfolio-box">
-        <img src="assets/images/project2.png" alt="Blog Post 2">
-        <div class="portfolio-layer">
-          <h4>Creating My First Mobile Game</h4>
-          <p>How I developed a Gomoku PvP app using Android Studio and Java.</p>
+    <div class="blog-container">
+      <article class="blog-post" tabindex="0" 
+        data-content="This is the full content of my very first blog post. Here I discuss how I started my coding journey, the challenges I faced, and how I overcame them. It was a rollercoaster, but I made it through!"
+        data-date="2023-10-15" 
+        data-tags="beginners">
+        <div class="blog-post-header">
+          <h3>My First Blog Post</h3>
+          <span class="post-date">October 15, 2023</span>
         </div>
-      </div>
+        <p>This is a summary of my first blog post where I share my coding journey beginnings.</p>
+        <div class="post-tags">
+          <span class="tag">beginners</span>
+        </div>
+      </article>
+    </div>
 
-      <!-- Blog Post 3 -->
-      <div class="portfolio-box">
-        <img src="assets/images/project3.png" alt="Blog Post 3">
-        <div class="portfolio-layer">
-          <h4>Why I Built This Portfolio</h4>
-          <p>A look into my motivations for creating this personal portfolio site from scratch.</p>
-        </div>
-      </div>
+    <div class="pagination" aria-label="Blog post pagination">
+      <button id="prev-btn" aria-label="Previous page" disabled>
+        <i class="bx bx-chevron-left"></i> Previous
+      </button>
+      <button id="next-btn" aria-label="Next page">
+        Next <i class="bx bx-chevron-right"></i>
+      </button>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-text">
       <p>&copy; 2025, Domingo, Zaldy Jr. C. | All Rights Reserved.</p>
     </div>
 
     <div class="footer-iconTop">
-      <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      <a href="#top" title="Back to Top"><i class="bx bx-up-arrow-alt"></i></a>
     </div>
   </footer>
 
-  <!-- JS Libraries and Custom Script -->
-  <script src="assets/script.js"></script>
+  <!-- Modal Structure -->
+  <div id="post-modal">
+    <div class="modal-content">
+      <button class="close-btn" aria-label="Close post">&times;</button>
+      <h2 id="modal-title"></h2>
+      <div class="post-meta">
+        <span id="modal-date"></span>
+        <span id="modal-tags"></span>
+      </div>
+      <p id="modal-body"></p>
+    </div>
+  </div>
+
+  <!-- Enhanced JavaScript -->
+  <script>
+    // DOM elements
+    const modal = document.getElementById('post-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDate = document.getElementById('modal-date');
+    const modalTags = document.getElementById('modal-tags');
+    const modalBody = document.getElementById('modal-body');
+    const closeBtn = document.querySelector('.close-btn');
+    const filterCategory = document.getElementById('filter-category');
+    const blogPosts = document.querySelectorAll('.blog-post');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    // Pagination variables
+    const postsPerPage = 3;
+    let currentPage = 1;
+    const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+
+    // Initialize blog
+    function initBlog() {
+      showPage(currentPage);
+      setupEventListeners();
+    }
+
+    // Show posts for current page
+    function showPage(page) {
+      const start = (page - 1) * postsPerPage;
+      const end = start + postsPerPage;
+
+      blogPosts.forEach((post, index) => {
+        post.style.display = (index >= start && index < end) ? 'flex' : 'none';
+      });
+
+      // Update pagination buttons
+      prevBtn.disabled = (page === 1);
+      nextBtn.disabled = (page === totalPages);
+
+      // Scroll to top smoothly
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Filter functionality
+    function filterPosts() {
+      const category = filterCategory.value;
+
+      blogPosts.forEach(post => {
+        const tags = post.getAttribute('data-tags');
+        const matchesCategory = category === 'all' || tags.includes(category);
+
+        post.style.display = matchesCategory ? 'flex' : 'none';
+      });
+
+      // Reset to first page after filtering
+      currentPage = 1;
+      showPage(currentPage);
+    }
+
+    // Open modal with post content
+    function openModal(post) {
+      const title = post.querySelector('h3').textContent;
+      const date = post.querySelector('.post-date').textContent;
+      const tags = post.getAttribute('data-tags').split(',').map(tag => 
+        `<span class="tag">${tag}</span>`
+      ).join('');
+      const content = post.getAttribute('data-content');
+
+      modalTitle.textContent = title;
+      modalDate.textContent = date;
+      modalTags.innerHTML = tags;
+      modalBody.textContent = content;
+      modal.style.display = 'flex';
+      
+      // Focus on close button for keyboard users
+      closeBtn.focus();
+    }
+
+    // Setup event listeners
+    function setupEventListeners() {
+      // Post click handlers
+      blogPosts.forEach(post => {
+        post.addEventListener('click', () => openModal(post));
+        post.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal(post);
+          }
+        });
+      });
+
+      // Modal close handlers
+      closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+
+      // Keyboard navigation for modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+          modal.style.display = 'none';
+        }
+      });
+
+      // Filter
+      filterCategory.addEventListener('change', filterPosts);
+
+      // Pagination
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          showPage(currentPage);
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          showPage(currentPage);
+        }
+      });
+    }
+
+    // Initialize the blog when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initBlog);
+  </script>
 </body>
 </html>

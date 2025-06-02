@@ -422,6 +422,14 @@
     box-shadow: 0 0 1rem var(--main-color);
 }
 
+.home-content p {
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    color: var(--text-color);
+}
+
+
+
 @media (max-width:1200px){
    html{
       font-size: 55%;
